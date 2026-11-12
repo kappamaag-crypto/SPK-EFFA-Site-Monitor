@@ -1,0 +1,37 @@
+name: Daily public-site QA
+on:
+  workflow_dispatch:
+  schedule:
+    # 18:00 Ufa (UTC+05:00), every day. GitHub may start scheduled jobs later.
+    - cron: '0 13 * * *'
+permissions:
+  contents: write # Write only sanitized reports through GITHUB_TOKEN; no PAT/API keys.
+concurrency:
+  group: spk-effa-public-audit
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -m playwright install --with-deps chromium
+      - name: Run read-only audit
+        run: python -m monitor.audit
+      - name: Validate report format
+        run: python -m pytest -q
+      - name: Save public sanitized reports
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/latest.json reports/latest.md reports/history/
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: daily public QA report'
+            git push
+          fi
