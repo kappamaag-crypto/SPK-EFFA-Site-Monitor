@@ -7,6 +7,7 @@ import ipaddress
 import json
 import os
 import re
+import secrets
 import socket
 import ssl
 from pathlib import Path
@@ -27,8 +28,6 @@ PRODUCTS = [
     ("VEKSA PR 10", "/veksa/pr-10.html"),
     ("VEKSA PP 11", "/veksa/pp-11.html"),
 ]
-CONTROL_PRODUCT = "ЭФФА А-01"
-CONTROL_PATH = "/ognezaschita/effa-a-01.html"
 MAX_LINKS = 65
 MAX_EXTERNAL = 10
 MAX_PDFS = 12
@@ -179,6 +178,9 @@ def inspect_page(page, url: str, *, detail: bool) -> dict:
         result["redirected_to"] = final_url if final_url and final_url != url else None
         result["links"] = page.locator("a[href]").evaluate_all("es => es.map(e => ({href:e.getAttribute('href'), text:(e.innerText||'').trim().slice(0,100)}))")
         if detail:
+            # The public H1 identifies the randomly selected SEO product.
+            # Keep only a short, restricted title; never save arbitrary page text.
+            result["product_title"] = clean_product_title(headings[0]) if headings else None
             result["breadcrumbs"] = page.locator("[aria-label*=breadcrumb i], .breadcrumb, .breadcrumbs").count() > 0
             result["images"] = page.locator("img").evaluate_all("es => es.slice(0,30).map(e => ({url:e.getAttribute('src')||'', alt_present:!!(e.getAttribute('alt')||'').trim(), complete:e.complete, loaded:e.naturalWidth>0, lazy:e.loading==='lazy'}))")
             result["description_present"] = page.locator("meta[name=description]").count() > 0
@@ -203,7 +205,36 @@ def inspect_page(page, url: str, *, detail: bool) -> dict:
     return result
 
 
-# Search engines are queried exactly twice per run. We never attempt CAPTCHA bypass.
+def clean_product_title(value: str) -> str | None:
+    """Keep only plausible, bounded public product names from catalog H1 tags."""
+    title = " ".join(value.split())
+    if not 4 <= len(title) <= 100 or not any(c.isalpha() for c in title):
+        return None
+    if not re.fullmatch(r"[\w\s+().№/\-–—]+", title, flags=re.UNICODE):
+        return None
+    if re.search(r"(?i)\b(email|телефон|адрес|контакты|тел\.)\b", title):
+        return None
+    return title
+
+
+def choose_control_candidate(candidates: list[str], previous: dict) -> tuple[str | None, int]:
+    """Choose from discovered catalog pages; hold each choice for two audits.
+
+    Randomize after the comparison run, and avoid the previous choice when
+    another catalog product exists. Empty live catalogs never become SEO claims.
+    """
+    choices = sorted(set(candidates))
+    if not choices:
+        return None, 0
+    old = previous.get("control_product") or {}
+    old_url = old.get("url")
+    if old_url in choices and old.get("consecutive_runs") == 1:
+        return old_url, 2
+    pool = [url for url in choices if url != old_url] or choices
+    return secrets.choice(pool), 1
+
+
+# Two exact queries for each engine, with separate results; no CAPTCHA bypass.
 SEARCH_ENGINES = {
     "Bing": ("https://www.bing.com/search", {"setlang": "ru-RU"}),
     "Google": ("https://www.google.com/search", {"hl": "ru", "gl": "ru", "num": "10"}),
@@ -250,8 +281,8 @@ def search_engine(session: requests.Session, engine: str, query: str, exact_path
     endpoint, base_params = SEARCH_ENGINES[engine]
     parameters = {**base_params, ("text" if engine == "Яндекс" else "q"): query}
     result = {"engine": engine, "query": query, "settings": base_params,
-              "status": "unverified", "exact_product_position": None,
-              "domain_positions": []}
+              "status": "unverified", "target_path": exact_path,
+              "exact_product_position": None, "domain_positions": []
     try:
         # Isolated, credential-free request. A search engine may deny automated access.
         with session.get(endpoint, params=parameters, timeout=TIMEOUT,
@@ -296,9 +327,9 @@ def comparison(report: dict, previous: dict) -> dict:
     result = {"baseline": not bool(previous), "serp": [], "fixed_errors": [], "new_errors": []}
     if not previous:
         return result
-    old_serp = {(x.get("engine"), x.get("query"), str(x.get("settings"))): x for x in previous.get("search", [])}
+    old_serp = {(x.get("engine"), x.get("query"), str(x.get("settings")), x.get("target_path")): x for x in previous.get("search", [])}
     for new in report["search"]:
-        old = old_serp.get((new["engine"], new["query"], str(new.get("settings"))))
+        old = old_serp.get((new["engine"], new["query"], str(new.get("settings")), new.get("target_path")))
         old_pos = old.get("exact_product_position") if old and old.get("status") == "ok" else None
         new_pos = new.get("exact_product_position") if new.get("status") == "ok" else None
         result["serp"].append({"engine": new["engine"], "query": new["query"], "old_position": old_pos, "new_position": new_pos,
@@ -313,15 +344,17 @@ def comparison(report: dict, previous: dict) -> dict:
 def run() -> dict:
     now = dt.datetime.now(dt.timezone.utc)
     d = now.astimezone(dt.timezone(dt.timedelta(hours=5))).date()
-    product_offset = (d.toordinal() // 2) % len(PRODUCTS)
-    selected = PRODUCTS[product_offset:product_offset + 2]
-    if len(selected) < 2:
-        selected += PRODUCTS[:2 - len(selected)]
+    previous_file = Path("reports/latest.json")
+    try:
+        prev = json.loads(previous_file.read_text(encoding="utf-8")) if previous_file.exists() else {}
+    except (ValueError, OSError):
+        prev = {}
     landing_urls = [BASE + "/"] + [BASE + path for path in CATALOGS]
     report = {"timestamp_utc": now.isoformat(), "date_ufa": d.isoformat(), "base": BASE,
               "time_ufa": now.astimezone(dt.timezone(dt.timedelta(hours=5))).isoformat(),
               "checks": site_basics(), "pages": [], "links": [], "pdfs": [], "search": [],
-              "selected_products": [],
+              "selected_products": [], "control_product": None,
+              "catalog_candidates_found": 0,
               "limitations": ["Достоверность позиций ограничена публичной выдачей: регион и разметка могут меняться.",
                               "В случае блокировки поисковой выдачи позиции помечаются как непроверенные.",
                               "Содержимое страниц, cookie, формы и персональные данные не сохраняются."]}
@@ -354,15 +387,33 @@ def run() -> dict:
             for url in landing_urls:
                 visit(url, False)
             product_map = {BASE + path: name for name, path in PRODUCTS}
-            selected_urls = sorted(set(product_map) | discovered)
-            if selected_urls:
-                offset = (d.toordinal() // 2) % len(selected_urls)
-                chosen = (selected_urls[offset:] + selected_urls[:offset])[:2]
-            else:
-                chosen = []
+            # Never select an unverified hardcoded product as a live catalog find.
+            candidates = sorted(discovered)
+            report["catalog_candidates_found"] = len(candidates)
+            control_url, streak = choose_control_candidate(candidates, prev)
+            chosen = [control_url] if control_url else []
+            alternatives = [url for url in candidates if url != control_url]
+            if alternatives:
+                chosen.append(secrets.choice(alternatives))
             for url in chosen:
                 result = visit(url, True)
-                report["selected_products"].append({"name": product_map.get(url) or ("Каталожный товар: " + Path(urlsplit(url).path).stem), "url": url})
+                title = result.get("product_title") or product_map.get(url)
+                report["selected_products"].append({
+                    "name": title or "Название не подтверждено", "url": url
+                })
+                if url == control_url and result.get("status") == "ok" and title:
+                    report["control_product"] = {
+                        "name": title, "url": url,
+                        "consecutive_runs": streak, "source": "live_catalog",
+                    }
+            if not candidates:
+                report["limitations"].append(
+                    "Не обнаружены карточки в доступных каталогах: случайный SEO-товар не выбран."
+                )
+            elif not report["control_product"]:
+                report["limitations"].append(
+                    "Выбранная карточка не открылась или не содержит корректного названия; SEO-поиск пропущен."
+                )
             browser.close()
     except Exception as exc:
         report["limitations"].append("Браузер недоступен: " + type(exc).__name__)
@@ -387,15 +438,13 @@ def run() -> dict:
         report["links"].append(item)
     for url in sorted(x for x in pdfs if site_url(x))[:MAX_PDFS]:
         report["pdfs"].append(check_pdf(session, url))
-    for engine in SEARCH_ENGINES:
-        for query in [f'"{CONTROL_PRODUCT}"', f'"{CONTROL_PRODUCT}" spk-effa.ru']:
-            report["search"].append(search_engine(session, engine, query, CONTROL_PATH))
+    control = report.get("control_product")
+    if control:
+        exact_path = urlsplit(control["url"]).path
+        for engine in SEARCH_ENGINES:
+            for query in [f'"{control["name"]}"', f'"{control["name"]}" spk-effa.ru']:
+                report["search"].append(search_engine(session, engine, query, exact_path))
     session.close()
-    previous_file = Path("reports/latest.json")
-    try:
-        prev = json.loads(previous_file.read_text(encoding="utf-8")) if previous_file.exists() else {}
-    except (ValueError, OSError):
-        prev = {}
     report["comparison"] = comparison(report, prev)
     return report
 
@@ -427,6 +476,12 @@ def write_report(report: dict):
     for item in report["pdfs"]:
         rows.append(f"- {item['url']} — {item['status']}; HTTP {item.get('http_status', '—')}; страницы: {item.get('pages', '—')}; тип: {item.get('content_type', '—')}")
     rows += ["", "## Поисковая видимость: Bing, Google, Яндекс"]
+    control = report.get("control_product")
+    if control:
+        rows.append(f"Случайный контрольный товар: **{control['name']}** — {control['url']} "
+                    f"(проверка {control['consecutive_runs']}/2); кандидатов каталога: {report['catalog_candidates_found']}.")
+    else:
+        rows.append("Контрольный товар не выбран: каталог или карточка не проверены; запросы не выполнялись.")
     for item in report["search"]:
         pos = item.get("exact_product_position") if item["status"] == "ok" else "не установлена"
         rows.append(f"- **{item['engine']}** `{item['query']}` — {item['status']}; позиция карточки: {pos}; "
