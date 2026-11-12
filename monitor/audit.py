@@ -282,7 +282,7 @@ def search_engine(session: requests.Session, engine: str, query: str, exact_path
     parameters = {**base_params, ("text" if engine == "Яндекс" else "q"): query}
     result = {"engine": engine, "query": query, "settings": base_params,
               "status": "unverified", "target_path": exact_path,
-              "exact_product_position": None, "domain_positions": []
+              "exact_product_position": None, "domain_positions": []}
     try:
         # Isolated, credential-free request. A search engine may deny automated access.
         with session.get(endpoint, params=parameters, timeout=TIMEOUT,
