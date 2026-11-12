@@ -1,0 +1,19 @@
+# Never commit local secrets or environment files.
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.key
+id_rsa*
+id_ed25519*
+.secrets/
+*.sqlite*
+__pycache__/
+.pytest_cache/
+.venv/
+*.log
+*.har
+cookies.json
+storage_state.json
