@@ -1,0 +1,535 @@
+{
+  "timestamp_utc": "2026-11-12T04:52:30.305185+00:00",
+  "date_ufa": "2026-11-12",
+  "base": "https://spk-effa.ru",
+  "time_ufa": "2026-11-12T09:52:30.305185+05:00",
+  "checks": {
+    "dns": "ok",
+    "https_certificate": "ok",
+    "certificate_expires_utc": "2027-01-07T00:43:50+00:00"
+  },
+  "pages": [
+    {
+      "url": "https://spk-effa.ru/",
+      "status": "ok",
+      "http_status": 200,
+      "title_present": true,
+      "h1_present": true,
+      "h1_matches_known_product": null,
+      "redirected_to": null
+    },
+    {
+      "url": "https://spk-effa.ru/blank/",
+      "status": "ok",
+      "http_status": 200,
+      "title_present": true,
+      "h1_present": true,
+      "h1_matches_known_product": null,
+      "redirected_to": null
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/",
+      "status": "ok",
+      "http_status": 200,
+      "title_present": true,
+      "h1_present": true,
+      "h1_matches_known_product": null,
+      "redirected_to": null
+    },
+    {
+      "url": "https://spk-effa.ru/veksa/",
+      "status": "ok",
+      "http_status": 200,
+      "title_present": true,
+      "h1_present": true,
+      "h1_matches_known_product": null,
+      "redirected_to": null
+    },
+    {
+      "url": "https://spk-effa.ru/veksa/pp-11.html",
+      "status": "ok",
+      "http_status": 200,
+      "title_present": true,
+      "h1_present": true,
+      "h1_matches_known_product": true,
+      "redirected_to": null,
+      "product_title": "VEKSA PP 11",
+      "breadcrumbs": true,
+      "images": [
+        {
+          "url": "https://spk-effa.ru/img/logo-spk-effa-mark.svg",
+          "alt_present": false,
+          "complete": true,
+          "loaded": true,
+          "lazy": false
+        },
+        {
+          "url": "https://spk-effa.ru/img/products/Veksa-floor.jpg",
+          "alt_present": true,
+          "complete": true,
+          "loaded": true,
+          "lazy": true
+        },
+        {
+          "url": "https://spk-effa.ru/img/logo-spk-effa-mark.svg",
+          "alt_present": false,
+          "complete": true,
+          "loaded": true,
+          "lazy": false
+        }
+      ],
+      "description_present": true,
+      "specification_present": true,
+      "price_signal_present": false,
+      "cta_types": [
+        "КП/расчёт"
+      ],
+      "warnings": [
+        "Изображение без содержательного alt",
+        "Изображение без содержательного alt"
+      ]
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/effa-ep-150.html",
+      "status": "ok",
+      "http_status": 200,
+      "title_present": true,
+      "h1_present": true,
+      "h1_matches_known_product": true,
+      "redirected_to": null,
+      "product_title": "ЭФФА ЭП-150",
+      "breadcrumbs": true,
+      "images": [
+        {
+          "url": "https://spk-effa.ru/img/logo-spk-effa-mark.svg",
+          "alt_present": false,
+          "complete": true,
+          "loaded": true,
+          "lazy": false
+        },
+        {
+          "url": "https://spk-effa.ru/img/products/%D0%AD%D0%A4%D0%A4%D0%90_%D0%AD%D0%9F-150.jpg",
+          "alt_present": true,
+          "complete": true,
+          "loaded": true,
+          "lazy": true
+        },
+        {
+          "url": "https://spk-effa.ru/img/logo-spk-effa-mark.svg",
+          "alt_present": false,
+          "complete": true,
+          "loaded": true,
+          "lazy": false
+        }
+      ],
+      "description_present": true,
+      "specification_present": true,
+      "price_signal_present": false,
+      "cta_types": [
+        "КП/расчёт"
+      ],
+      "warnings": [
+        "Изображение без содержательного alt",
+        "Изображение без содержательного alt"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "url": "https://spk-effa.ru/blank/dtm.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/dtm.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/finish.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/finish.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/hp.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/hp.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/mio.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/mio.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/obyekty.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/obyekty.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/one.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/one.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/sistemy-pokrytiy.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/sistemy-pokrytiy.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/tank-lp.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/tank-lp.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/tank.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/tank.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/universal.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/universal.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/zinc.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/zinc.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/kalkulyatory.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/kalkulyatory.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/effa-01-rastvoritel.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/effa-01-rastvoritel.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/effa-01-voda.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/effa-01-voda.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/effa-01b.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/effa-01b.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/effa-a-01-konstruktiv.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/effa-a-01-konstruktiv.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/effa-a-01.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/effa-a-01.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/effa-ep-150k.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/effa-ep-150k.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/effa-kabel.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/effa-kabel.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/effa-kt01.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/effa-kt01.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/effa-pu-026.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/effa-pu-026.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/index.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/index.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/obyekty.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/obyekty.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/privacy.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/privacy.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/raschet.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/raschet.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/veksa/ep-20.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/veksa/ep-20.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/veksa/ep-21.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/veksa/ep-21.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/veksa/index.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/veksa/index.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/veksa/ispytaniya.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/veksa/ispytaniya.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/veksa/pr-10.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/veksa/pr-10.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/veksa/primenenie.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/veksa/primenenie.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/veksa/rezhim-ukladki.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/veksa/rezhim-ukladki.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://t.me/kappam6abless",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://t.me/kappam6abless",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://wa.me/79829059348",
+      "status": "unverified",
+      "http_status": null,
+      "reason": "Небезопасный или неподтверждённый редирект"
+    }
+  ],
+  "pdfs": [
+    {
+      "url": "https://spk-effa.ru/docs/effa/EFFA_EP150_and_EP150K.pdf",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/docs/effa/EFFA_EP150_and_EP150K.pdf",
+      "content_type": "application/pdf",
+      "bytes": 1991209,
+      "pages": 3
+    },
+    {
+      "url": "https://spk-effa.ru/docs/veksa/VEKSA_PP_11.pdf",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/docs/veksa/VEKSA_PP_11.pdf",
+      "content_type": "application/pdf",
+      "bytes": 179026,
+      "pages": 3
+    }
+  ],
+  "search": [
+    {
+      "engine": "Bing",
+      "query": "\"VEKSA PP 11\"",
+      "settings": {
+        "setlang": "ru-RU"
+      },
+      "status": "unverified",
+      "target_path": "/veksa/pp-11.html",
+      "exact_product_position": null,
+      "domain_positions": [],
+      "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
+    },
+    {
+      "engine": "Bing",
+      "query": "\"VEKSA PP 11\" spk-effa.ru",
+      "settings": {
+        "setlang": "ru-RU"
+      },
+      "status": "unverified",
+      "target_path": "/veksa/pp-11.html",
+      "exact_product_position": null,
+      "domain_positions": [],
+      "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
+    },
+    {
+      "engine": "Google",
+      "query": "\"VEKSA PP 11\"",
+      "settings": {
+        "hl": "ru",
+        "gl": "ru",
+        "num": "10"
+      },
+      "status": "unverified",
+      "target_path": "/veksa/pp-11.html",
+      "exact_product_position": null,
+      "domain_positions": [],
+      "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
+    },
+    {
+      "engine": "Google",
+      "query": "\"VEKSA PP 11\" spk-effa.ru",
+      "settings": {
+        "hl": "ru",
+        "gl": "ru",
+        "num": "10"
+      },
+      "status": "unverified",
+      "target_path": "/veksa/pp-11.html",
+      "exact_product_position": null,
+      "domain_positions": [],
+      "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
+    },
+    {
+      "engine": "Яндекс",
+      "query": "\"VEKSA PP 11\"",
+      "settings": {
+        "lr": "172"
+      },
+      "status": "unverified",
+      "target_path": "/veksa/pp-11.html",
+      "exact_product_position": null,
+      "domain_positions": [],
+      "reason": "HTTP 302"
+    },
+    {
+      "engine": "Яндекс",
+      "query": "\"VEKSA PP 11\" spk-effa.ru",
+      "settings": {
+        "lr": "172"
+      },
+      "status": "unverified",
+      "target_path": "/veksa/pp-11.html",
+      "exact_product_position": null,
+      "domain_positions": [],
+      "reason": "HTTP 302"
+    }
+  ],
+  "selected_products": [
+    {
+      "name": "VEKSA PP 11",
+      "url": "https://spk-effa.ru/veksa/pp-11.html"
+    },
+    {
+      "name": "ЭФФА ЭП-150",
+      "url": "https://spk-effa.ru/ognezaschita/effa-ep-150.html"
+    }
+  ],
+  "control_product": {
+    "name": "VEKSA PP 11",
+    "url": "https://spk-effa.ru/veksa/pp-11.html",
+    "consecutive_runs": 1,
+    "source": "live_catalog"
+  },
+  "catalog_candidates_found": 28,
+  "limitations": [
+    "Достоверность позиций ограничена публичной выдачей: регион и разметка могут меняться.",
+    "В случае блокировки поисковой выдачи позиции помечаются как непроверенные.",
+    "Содержимое страниц, cookie, формы и персональные данные не сохраняются."
+  ],
+  "comparison": {
+    "baseline": true,
+    "serp": [],
+    "fixed_errors": [],
+    "new_errors": []
+  }
+}
