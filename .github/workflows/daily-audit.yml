@@ -1,5 +1,13 @@
 name: Daily public-site QA
 on:
+  # Check code changes automatically, but never retrigger on reports/* commits.
+  push:
+    branches: [main]
+    paths:
+      - 'monitor/**'
+      - 'tests/**'
+      - '.github/workflows/daily-audit.yml'
+      - 'requirements.txt'
   workflow_dispatch:
   schedule:
     # 18:00 Ufa (UTC+05:00), every day. GitHub may start scheduled jobs later.
