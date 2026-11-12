@@ -1,6 +1,6 @@
-# QA-аудит spk-effa.ru — 2026-11-12
+# QA-аудит spk-effa.ru — 2026-11-13
 
-Время Уфа: 2026-11-12T09:52:30.305185+05:00 (UTC+5)
+Время Уфа: 2026-11-13T01:39:44.828951+05:00 (UTC+5)
 Страницы: успешно 6/6; подтверждённые HTTP/PDF-ошибки: 0; непроверено: 7.
 
 ## Проверенные страницы
@@ -9,18 +9,18 @@
 - https://spk-effa.ru/ognezaschita/ — ok (HTTP 200)
 - https://spk-effa.ru/veksa/ — ok (HTTP 200)
 - https://spk-effa.ru/veksa/pp-11.html — ok (HTTP 200)
-- https://spk-effa.ru/ognezaschita/effa-ep-150.html — ok (HTTP 200)
+- https://spk-effa.ru/veksa/ep-20.html — ok (HTTP 200)
 
 ## Выбранные товары (ротация)
 - VEKSA PP 11 — https://spk-effa.ru/veksa/pp-11.html; H1: True; совпадение H1: True; описание: True; характеристики: True; ценовой признак: False; CTA: КП/расчёт
-- ЭФФА ЭП-150 — https://spk-effa.ru/ognezaschita/effa-ep-150.html; H1: True; совпадение H1: True; описание: True; характеристики: True; ценовой признак: False; CTA: КП/расчёт
+- VEKSA EP 20 — https://spk-effa.ru/veksa/ep-20.html; H1: True; совпадение H1: None; описание: True; характеристики: True; ценовой признак: False; CTA: КП/расчёт
 
 ## PDF
-- https://spk-effa.ru/docs/effa/EFFA_EP150_and_EP150K.pdf — ok; HTTP 200; страницы: 3; тип: application/pdf
+- https://spk-effa.ru/docs/veksa/VEKSA_EP_20.pdf — ok; HTTP 200; страницы: 4; тип: application/pdf
 - https://spk-effa.ru/docs/veksa/VEKSA_PP_11.pdf — ok; HTTP 200; страницы: 3; тип: application/pdf
 
 ## Поисковая видимость: Bing, Google, Яндекс
-Случайный контрольный товар: **VEKSA PP 11** — https://spk-effa.ru/veksa/pp-11.html (проверка 1/2); кандидатов каталога: 28.
+Случайный контрольный товар: **VEKSA PP 11** — https://spk-effa.ru/veksa/pp-11.html (проверка 2/2); кандидатов каталога: 28.
 - **Bing** `"VEKSA PP 11"` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: Недостаточно распознанных органических результатов (другая разметка или блокировка)
 - **Bing** `"VEKSA PP 11" spk-effa.ru` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: Недостаточно распознанных органических результатов (другая разметка или блокировка)
 - **Google** `"VEKSA PP 11"` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: Недостаточно распознанных органических результатов (другая разметка или блокировка)
@@ -29,7 +29,12 @@
 - **Яндекс** `"VEKSA PP 11" spk-effa.ru` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: HTTP 302
 
 ## Сравнение с предыдущим прогоном
-- Базовая точка, предыдущих результатов нет.
+- **Bing** `"VEKSA PP 11"`: раньше None, сейчас None; изменение: несопоставимо
+- **Bing** `"VEKSA PP 11" spk-effa.ru`: раньше None, сейчас None; изменение: несопоставимо
+- **Google** `"VEKSA PP 11"`: раньше None, сейчас None; изменение: несопоставимо
+- **Google** `"VEKSA PP 11" spk-effa.ru`: раньше None, сейчас None; изменение: несопоставимо
+- **Яндекс** `"VEKSA PP 11"`: раньше None, сейчас None; изменение: несопоставимо
+- **Яндекс** `"VEKSA PP 11" spk-effa.ru`: раньше None, сейчас None; изменение: несопоставимо
 - Новые подтверждённые ошибки ссылок/PDF: нет
 - Подтверждённые исправления ссылок/PDF: нет
 
@@ -38,7 +43,7 @@
 
 ## Предупреждения
 - https://spk-effa.ru/veksa/pp-11.html: Изображение без содержательного alt
-- https://spk-effa.ru/ognezaschita/effa-ep-150.html: Изображение без содержательного alt
+- https://spk-effa.ru/veksa/ep-20.html: Изображение без содержательного alt
 
 ## Ограничения и непроверенные элементы
 - Достоверность позиций ограничена публичной выдачей: регион и разметка могут меняться.
