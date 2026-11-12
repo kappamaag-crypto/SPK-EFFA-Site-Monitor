@@ -55,3 +55,40 @@ def test_position_diff_requires_same_search_conditions():
     old = {'search': [{'engine': 'Google', 'query': '"ЭФФА А-01"', 'settings': {'hl':'ru'}, 'status':'ok', 'exact_product_position':5}]}
     new = {'search': [{'engine': 'Google', 'query': '"ЭФФА А-01"', 'settings': {'hl':'en'}, 'status':'ok', 'exact_product_position':1}], 'links':[], 'pdfs':[]}
     assert comparison(new, old)['serp'][0]['change'] is None
+
+
+from monitor.audit import choose_control_candidate, clean_product_title
+
+
+def test_control_product_is_random_and_stays_two_runs(monkeypatch):
+    # Stable test chooser only, production uses secrets.choice().
+    monkeypatch.setattr("monitor.audit.secrets.choice", lambda items: items[-1])
+    items = ["https://spk-effa.ru/blank/finish.html",
+             "https://spk-effa.ru/veksa/pp-11.html",
+             "https://spk-effa.ru/ognezaschita/effa-a-01.html"]
+    first, n1 = choose_control_candidate(items, {})
+    assert first in items and n1 == 1
+    second, n2 = choose_control_candidate(items, {"control_product": {
+        "url": first, "consecutive_runs": 1}})
+    assert (second, n2) == (first, 2)
+    third, n3 = choose_control_candidate(items, {"control_product": {
+        "url": first, "consecutive_runs": 2}})
+    assert third != first and n3 == 1
+
+
+def test_missing_catalog_never_claims_selected_product():
+    assert choose_control_candidate([], {}) == (None, 0)
+    assert clean_product_title("  ЭФФА ЭП-150   ") == "ЭФФА ЭП-150"
+    assert clean_product_title("Связаться: info@example.com") is None
+    assert clean_product_title("a") is None
+
+
+def test_different_target_product_cannot_be_compared():
+    old = {'search': [{'engine': 'Bing', 'query': '"Blank Finish"',
+                       'target_path': '/blank/finish.html',
+                       'status': 'ok', 'exact_product_position': 8}]}
+    new = {'search': [{'engine': 'Bing', 'query': '"Blank Finish"',
+                       'target_path': '/blank/universal.html',
+                       'status': 'ok', 'exact_product_position': 1}],
+           'links': [], 'pdfs': []}
+    assert comparison(new, old)['serp'][0]['change'] is None
