@@ -1,6 +1,6 @@
 # QA-аудит spk-effa.ru — 2026-11-14
 
-Время Уфа: 2026-11-14T01:20:47.904048+05:00 (UTC+5)
+Время Уфа: 2026-11-14T23:39:42.706989+05:00 (UTC+5)
 Страницы: успешно 6/6; подтверждённые HTTP/PDF-ошибки: 0; непроверено: 7.
 
 ## Проверенные страницы
@@ -9,17 +9,18 @@
 - https://spk-effa.ru/ognezaschita/ — ok (HTTP 200)
 - https://spk-effa.ru/veksa/ — ok (HTTP 200)
 - https://spk-effa.ru/ognezaschita/effa-pu-026.html — ok (HTTP 200)
-- https://spk-effa.ru/blank/obyekty.html — ok (HTTP 200)
+- https://spk-effa.ru/veksa/pr-10.html — ok (HTTP 200)
 
 ## Выбранные товары (ротация)
 - ЭФФА ПУ-026 — https://spk-effa.ru/ognezaschita/effa-pu-026.html; H1: True; совпадение H1: None; описание: True; характеристики: True; ценовой признак: False; CTA: КП/расчёт, Прочее
-- Реализованные объекты Blank — https://spk-effa.ru/blank/obyekty.html; H1: True; совпадение H1: None; описание: True; характеристики: True; ценовой признак: False; CTA: Прочее
+- VEKSA PR 10 — https://spk-effa.ru/veksa/pr-10.html; H1: True; совпадение H1: True; описание: True; характеристики: True; ценовой признак: False; CTA: КП/расчёт, Прочее
 
 ## PDF
 - https://spk-effa.ru/docs/effa/%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%BF%D0%B0%D1%81%D0%BF%D0%BE%D1%80%D1%82_%D0%AD%D0%A4%D0%A4%D0%90_%D0%9F%D0%A3_026.pdf — ok; HTTP 200; страницы: 2; тип: application/pdf
+- https://spk-effa.ru/docs/veksa/VEKSA_PR_10.pdf — ok; HTTP 200; страницы: 3; тип: application/pdf
 
 ## Поисковая видимость: Bing, Google, Яндекс
-Случайный контрольный товар: **ЭФФА ПУ-026** — https://spk-effa.ru/ognezaschita/effa-pu-026.html (проверка 1/2); кандидатов каталога: 28.
+Случайный контрольный товар: **ЭФФА ПУ-026** — https://spk-effa.ru/ognezaschita/effa-pu-026.html (проверка 2/2); кандидатов каталога: 28.
 - **Bing** `"ЭФФА ПУ-026"` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: Недостаточно распознанных органических результатов (другая разметка или блокировка)
 - **Bing** `"ЭФФА ПУ-026" spk-effa.ru` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: Недостаточно распознанных органических результатов (другая разметка или блокировка)
 - **Google** `"ЭФФА ПУ-026"` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: Недостаточно распознанных органических результатов (другая разметка или блокировка)
@@ -42,7 +43,7 @@
 
 ## Предупреждения
 - https://spk-effa.ru/ognezaschita/effa-pu-026.html: Изображение без содержательного alt
-- https://spk-effa.ru/blank/obyekty.html: Изображение без содержательного alt
+- https://spk-effa.ru/veksa/pr-10.html: Изображение без содержательного alt
 
 ## Ограничения и непроверенные элементы
 - Достоверность позиций ограничена публичной выдачей: регион и разметка могут меняться.
