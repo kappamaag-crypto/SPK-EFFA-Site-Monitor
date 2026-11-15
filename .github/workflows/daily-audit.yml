@@ -10,7 +10,7 @@ on:
       - 'requirements.txt'
   workflow_dispatch:
   schedule:
-    # 18:00 Ufa (UTC+05:00), every day. GitHub may start scheduled jobs later.
+    # Staggered primary + fallback, Ufa UTC+05:00. GitHub may delay or drop scheduled runs.
     - cron: '17 13 * * *' # Primary: 18:17 Ufa; avoid top-of-hour congestion
     - cron: '17 16 * * *' # Fallback: 21:17 Ufa; skip if today's report exists
 permissions:
@@ -41,7 +41,7 @@ jobs:
           # Push and manual dispatch always validate the changed monitor.
           skip = os.environ.get("GITHUB_EVENT_NAME") == "schedule" and done
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as out:
-              out.write(f"skip={'true' if skip else 'false'}\\n".replace("\\\\n", "\\n"))
+              out.write("skip=" + str(skip).lower() + chr(10))
           print(f"Ufa date={today}; existing report today={done}; skip={skip}")
           PY
       - uses: actions/setup-python@v5
