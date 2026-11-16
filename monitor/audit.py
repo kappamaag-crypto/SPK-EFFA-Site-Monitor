@@ -17,6 +17,7 @@ import requests
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright, TimeoutError as BrowserTimeout
 from pypdf import PdfReader
+from monitor.browser_qa import audit_browser
 
 BASE = "https://spk-effa.ru"
 CATALOGS = ["/blank/", "/ognezaschita/", "/veksa/"]
@@ -516,6 +517,7 @@ def run() -> dict:
                 report["search"].append(search_engine(session, engine, query, exact_path))
     session.close()
     report["raskroy"] = check_raskroy()
+    report["raskroy_browser"] = audit_browser()
     report["comparison"] = comparison(report, prev)
     return report
 
@@ -579,6 +581,14 @@ def write_report(report: dict):
         check = sub.get(key, {})
         rows.append(f"- {key}: {check.get('status', 'unverified')} HTTP {check.get('http_status', '—')}")
     rows += ["- Ограничение: " + x for x in sub.get("limitations", [])]
+    bqa = report.get("raskroy_browser") or {}
+    rows += ["", "## Раскрой PRO — браузерный QA (без действий)",
+             "- Браузер: " + str(bqa.get("status", "unverified")) + "; HTTP: " + str(bqa.get("http_status", "—")),
+             "- Desktop/mobile: " + json.dumps(bqa.get("viewport", {}), ensure_ascii=False),
+             "- Элементы: " + json.dumps(bqa.get("elements", {}), ensure_ascii=False),
+             "- JS ошибки: " + json.dumps(bqa.get("javascript_errors", []), ensure_ascii=False),
+             "- Ошибки ресурсов: " + json.dumps(bqa.get("failed_resources", []), ensure_ascii=False)]
+    rows += ["- Ограничение: " + x for x in bqa.get("limitations", [])]
     rows += ["", "## Подтверждённые ошибки HTTP/PDF"]
     for item in errors[:80]:
         rows.append(f"- {item['url']} — HTTP {item.get('http_status', '—')}; {item.get('reason', '')}")
