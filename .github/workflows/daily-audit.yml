@@ -8,6 +8,12 @@ on:
       - 'tests/**'
       - '.github/workflows/daily-audit.yml'
       - 'requirements.txt'
+  pull_request:
+    paths:
+      - 'monitor/**'
+      - 'tests/**'
+      - '.github/workflows/daily-audit.yml'
+      - 'requirements.txt'
   workflow_dispatch:
   schedule:
     # Staggered primary + fallback, Ufa UTC+05:00. GitHub may delay or drop scheduled runs.
@@ -51,15 +57,15 @@ jobs:
       - run: pip install -r requirements.txt
         if: steps.fresh.outputs.skip != 'true'
       - run: python -m playwright install --with-deps chromium
-        if: steps.fresh.outputs.skip != 'true'
+        if: steps.fresh.outputs.skip != 'true' && github.event_name != 'pull_request'
       - name: Run read-only audit
-        if: steps.fresh.outputs.skip != 'true'
+        if: steps.fresh.outputs.skip != 'true' && github.event_name != 'pull_request'
         run: python -m monitor.audit
       - name: Validate report format
         if: steps.fresh.outputs.skip != 'true'
         run: python -m pytest -q
       - name: Save public sanitized reports
-        if: steps.fresh.outputs.skip != 'true'
+        if: steps.fresh.outputs.skip != 'true' && github.event_name != 'pull_request'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
