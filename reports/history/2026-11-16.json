@@ -1,8 +1,8 @@
 {
-  "timestamp_utc": "2026-11-15T19:14:34.290724+00:00",
+  "timestamp_utc": "2026-11-16T16:47:32.518857+00:00",
   "date_ufa": "2026-11-16",
   "base": "https://spk-effa.ru",
-  "time_ufa": "2026-11-16T00:14:34.290724+05:00",
+  "time_ufa": "2026-11-16T21:47:32.518857+05:00",
   "checks": {
     "dns": "ok",
     "https_certificate": "ok",
@@ -91,14 +91,14 @@
       ]
     },
     {
-      "url": "https://spk-effa.ru/blank/sistemy-pokrytiy.html",
+      "url": "https://spk-effa.ru/blank/mio.html",
       "status": "ok",
       "http_status": 200,
       "title_present": true,
       "h1_present": true,
       "h1_matches_known_product": null,
       "redirected_to": null,
-      "product_title": "Системы покрытий Blank",
+      "product_title": "Blank MIO",
       "breadcrumbs": true,
       "images": [
         {
@@ -107,6 +107,13 @@
           "complete": true,
           "loaded": true,
           "lazy": false
+        },
+        {
+          "url": "https://spk-effa.ru/img/products/Blank%20MIO.jpg",
+          "alt_present": true,
+          "complete": true,
+          "loaded": true,
+          "lazy": true
         },
         {
           "url": "https://spk-effa.ru/img/logo-spk-effa-mark.svg",
@@ -120,6 +127,7 @@
       "specification_present": true,
       "price_signal_present": false,
       "cta_types": [
+        "КП/расчёт",
         "Прочее"
       ],
       "warnings": [
@@ -162,14 +170,6 @@
       "truncated": true
     },
     {
-      "url": "https://spk-effa.ru/blank/mio.html",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://spk-effa.ru/blank/mio.html",
-      "content_type": "text/html",
-      "truncated": true
-    },
-    {
       "url": "https://spk-effa.ru/blank/obyekty.html",
       "status": "ok",
       "http_status": 200,
@@ -182,6 +182,14 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/blank/one.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/sistemy-pokrytiy.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/sistemy-pokrytiy.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -206,14 +214,6 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/blank/zinc.html",
-      "content_type": "text/html",
-      "truncated": true
-    },
-    {
-      "url": "https://spk-effa.ru/index.html",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://spk-effa.ru/index.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -402,6 +402,15 @@
   ],
   "pdfs": [
     {
+      "url": "https://spk-effa.ru/docs/blank/Blank_MIO.pdf",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/docs/blank/Blank_MIO.pdf",
+      "content_type": "application/pdf",
+      "bytes": 851688,
+      "pages": 4
+    },
+    {
       "url": "https://spk-effa.ru/docs/blank/Blank_Tank_LP.pdf",
       "status": "ok",
       "http_status": 200,
@@ -495,17 +504,84 @@
       "url": "https://spk-effa.ru/blank/tank-lp.html"
     },
     {
-      "name": "Системы покрытий Blank",
-      "url": "https://spk-effa.ru/blank/sistemy-pokrytiy.html"
+      "name": "Blank MIO",
+      "url": "https://spk-effa.ru/blank/mio.html"
     }
   ],
   "control_product": {
     "name": "Blank Tank LP",
     "url": "https://spk-effa.ru/blank/tank-lp.html",
-    "consecutive_runs": 1,
+    "consecutive_runs": 2,
     "source": "live_catalog"
   },
   "catalog_candidates_found": 28,
+  "raskroy": {
+    "url": "https://raskroy.spk-effa.ru/",
+    "dns": "ok",
+    "tls": "ok",
+    "http_status": 200,
+    "status": "ok",
+    "resources": [
+      {
+        "url": "https://raskroy.spk-effa.ru/favicon.png",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://raskroy.spk-effa.ru/favicon.png",
+        "content_type": "image/png",
+        "truncated": true
+      },
+      {
+        "url": "https://raskroy.spk-effa.ru/favicon.svg",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://raskroy.spk-effa.ru/favicon.svg",
+        "content_type": "image/svg+xml"
+      },
+      {
+        "url": "https://raskroy.spk-effa.ru/favicon.ico",
+        "status": "ok",
+        "http_status": 200,
+        "final_url": "https://raskroy.spk-effa.ru/favicon.ico",
+        "content_type": "image/vnd.microsoft.icon",
+        "truncated": true
+      }
+    ],
+    "seo": {
+      "title_present": true,
+      "description_present": true,
+      "canonical": "https://raskroy.spk-effa.ru/",
+      "robots_meta": "index,follow,max-image-preview:large",
+      "viewport_present": true
+    },
+    "ui_signals": {
+      "inputs_present": true,
+      "buttons_present": true,
+      "cutting_parameters_text": true,
+      "stock_remnants_text": true,
+      "cutting_plan_text": true,
+      "export_text": true
+    },
+    "limitations": [
+      "Только HTML и безопасные GET: JS, расчёты, экспорт и мобильная отрисовка не исполнялись"
+    ],
+    "certificate_expires_utc": "2027-02-11T06:39:47+00:00",
+    "final_url": "https://raskroy.spk-effa.ru/",
+    "content_type": "text/html",
+    "robots.txt": {
+      "url": "https://raskroy.spk-effa.ru/robots.txt",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://raskroy.spk-effa.ru/robots.txt",
+      "content_type": "text/plain"
+    },
+    "sitemap.xml": {
+      "url": "https://raskroy.spk-effa.ru/sitemap.xml",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://raskroy.spk-effa.ru/sitemap.xml",
+      "content_type": "application/xml"
+    }
+  },
   "limitations": [
     "Достоверность позиций ограничена публичной выдачей: регион и разметка могут меняться.",
     "В случае блокировки поисковой выдачи позиции помечаются как непроверенные.",
