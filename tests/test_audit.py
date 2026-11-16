@@ -92,3 +92,23 @@ def test_different_target_product_cannot_be_compared():
                        'status': 'ok', 'exact_product_position': 1}],
            'links': [], 'pdfs': []}
     assert comparison(new, old)['serp'][0]['change'] is None
+
+
+def test_browser_audit_is_bounded_and_read_only():
+    import inspect
+    from monitor.browser_qa import audit_browser, MAX_ASSETS
+    source = inspect.getsource(audit_browser)
+    assert MAX_ASSETS <= 30
+    assert 'route.request.method in ("GET", "HEAD", "OPTIONS")' in source
+    assert "page.goto(URL" in source
+    for forbidden in (".click(", ".fill(", ".submit(", ".press(", ".type("):
+        assert forbidden not in source
+
+
+def test_browser_audit_does_not_claim_functional_correctness():
+    import inspect
+    from monitor.browser_qa import audit_browser
+    source = inspect.getsource(audit_browser)
+    assert "Наличие элементов не доказывает работоспособность алгоритма" in source
+    assert "horizontalOverflow" in source
+    assert "pageerror" in source
