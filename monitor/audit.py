@@ -341,6 +341,76 @@ def comparison(report: dict, previous: dict) -> dict:
     return result
 
 
+
+def check_raskroy() -> dict:
+    """Independent, bounded read-only snapshot of the public calculator."""
+    host = "raskroy.spk-effa.ru"
+    base = "https://" + host
+    result = {"url": base + "/", "dns": "unverified", "tls": "unverified",
+              "http_status": None, "status": "unverified", "resources": [],
+              "seo": {}, "ui_signals": {}, "limitations": []}
+    if not public_dns(host):
+        result["reason"] = "DNS недоступен из runner или непубличный адрес"
+        return result
+    result["dns"] = "ok"
+    try:
+        ctx = ssl.create_default_context()
+        with socket.create_connection((host, 443), timeout=TIMEOUT) as sock:
+            with ctx.wrap_socket(sock, server_hostname=host) as tls:
+                cert = tls.getpeercert()
+                expiry = dt.datetime.fromtimestamp(ssl.cert_time_to_seconds(cert["notAfter"]), dt.timezone.utc)
+                result["tls"] = "ok" if expiry > dt.datetime.now(dt.timezone.utc) else "error"
+                result["certificate_expires_utc"] = expiry.isoformat()
+    except (OSError, ssl.SSLError, KeyError) as exc:
+        result["tls_reason"] = type(exc).__name__
+    session = requests.Session()
+    session.trust_env = False
+    session.headers.update({"User-Agent": "SPK-EFFA-Public-QA/1.0"})
+    page, body = safe_request(session, base + "/", limit=1_000_000)
+    result.update({k: page.get(k) for k in ("status", "http_status", "final_url", "content_type", "reason") if k in page})
+    if page.get("truncated"):
+        result["limitations"].append("HTML превышает лимит 1 MB; анализ частичный")
+    if page.get("status") == "ok" and page.get("content_type") == "text/html":
+        soup = BeautifulSoup(body, "html.parser")
+        canonical = soup.find("link", rel="canonical")
+        description = soup.find("meta", attrs={"name": re.compile("^description$", re.I)})
+        robots = soup.find("meta", attrs={"name": re.compile("^robots$", re.I)})
+        result["seo"] = {
+            "title_present": bool(soup.title and soup.title.get_text(strip=True)),
+            "description_present": bool(description and description.get("content", "").strip()),
+            "canonical": safe_url(canonical.get("href", ""), base + "/") if canonical else None,
+            "robots_meta": (robots.get("content", "")[:120] if robots else None),
+            "viewport_present": bool(soup.find("meta", attrs={"name": "viewport"})),
+        }
+        markup = soup.get_text(" ", strip=True).casefold()
+        result["ui_signals"] = {
+            "inputs_present": bool(soup.select("input, select, textarea")),
+            "buttons_present": bool(soup.select("button")),
+            "cutting_parameters_text": any(t in markup for t in ("пропил", "длина заготовки", "параметры резки")),
+            "stock_remnants_text": "остатк" in markup,
+            "cutting_plan_text": "карт" in markup and "раскро" in markup,
+            "export_text": any(t in markup for t in ("экспорт", "excel", "csv", "json")),
+        }
+        urls = []
+        for tag, attr in (("script", "src"), ("link", "href"), ("img", "src")):
+            for node in soup.find_all(tag):
+                if tag == "link" and not any(x in (node.get("rel") or []) for x in ("stylesheet", "icon")):
+                    continue
+                u = safe_url(node.get(attr, ""), base + "/")
+                if u and urlsplit(u).hostname == host and u not in urls:
+                    urls.append(u)
+        for url in urls[:8]:
+            check, _ = safe_request(session, url, limit=1024)
+            result["resources"].append(check)
+        if len(urls) > 8:
+            result["limitations"].append("Проверены только первые 8 локальных статических ресурсов")
+    for path in ("/robots.txt", "/sitemap.xml"):
+        check, _ = safe_request(session, base + path, limit=100_000)
+        result[path.lstrip("/")] = check
+    session.close()
+    result["limitations"].append("Только HTML и безопасные GET: JS, расчёты, экспорт и мобильная отрисовка не исполнялись")
+    return result
+
 def run() -> dict:
     now = dt.datetime.now(dt.timezone.utc)
     d = now.astimezone(dt.timezone(dt.timedelta(hours=5))).date()
@@ -354,7 +424,7 @@ def run() -> dict:
               "time_ufa": now.astimezone(dt.timezone(dt.timedelta(hours=5))).isoformat(),
               "checks": site_basics(), "pages": [], "links": [], "pdfs": [], "search": [],
               "selected_products": [], "control_product": None,
-              "catalog_candidates_found": 0,
+              "catalog_candidates_found": 0, "raskroy": None,
               "limitations": ["Достоверность позиций ограничена публичной выдачей: регион и разметка могут меняться.",
                               "В случае блокировки поисковой выдачи позиции помечаются как непроверенные.",
                               "Содержимое страниц, cookie, формы и персональные данные не сохраняются."]}
@@ -445,6 +515,7 @@ def run() -> dict:
             for query in [f'"{control["name"]}"', f'"{control["name"]}" spk-effa.ru']:
                 report["search"].append(search_engine(session, engine, query, exact_path))
     session.close()
+    report["raskroy"] = check_raskroy()
     report["comparison"] = comparison(report, prev)
     return report
 
@@ -497,6 +568,17 @@ def write_report(report: dict):
                     f"изменение: {delta if delta is not None else 'несопоставимо'}")
     rows.append("- Новые подтверждённые ошибки ссылок/PDF: " + (", ".join(comp.get("new_errors", [])) or "нет"))
     rows.append("- Подтверждённые исправления ссылок/PDF: " + (", ".join(comp.get("fixed_errors", [])) or "нет"))
+    sub = report.get("raskroy") or {}
+    rows += ["", "## Раскрой PRO — независимая read-only проверка",
+             f"- URL: {sub.get('url', '—')}; DNS: {sub.get('dns', '—')}; TLS: {sub.get('tls', '—')}; HTTP: {sub.get('http_status', '—')}; статус: {sub.get('status', '—')}",
+             "- SEO: " + json.dumps(sub.get("seo", {}), ensure_ascii=False),
+             "- UI-сигналы (не функциональные тесты): " + json.dumps(sub.get("ui_signals", {}), ensure_ascii=False)]
+    for resource in sub.get("resources", []):
+        rows.append(f"- Ресурс {resource.get('url')}: {resource.get('status')} HTTP {resource.get('http_status')}")
+    for key in ("robots.txt", "sitemap.xml"):
+        check = sub.get(key, {})
+        rows.append(f"- {key}: {check.get('status', 'unverified')} HTTP {check.get('http_status', '—')}")
+    rows += ["- Ограничение: " + x for x in sub.get("limitations", [])]
     rows += ["", "## Подтверждённые ошибки HTTP/PDF"]
     for item in errors[:80]:
         rows.append(f"- {item['url']} — HTTP {item.get('http_status', '—')}; {item.get('reason', '')}")
