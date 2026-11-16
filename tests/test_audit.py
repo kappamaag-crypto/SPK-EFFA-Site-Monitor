@@ -112,3 +112,17 @@ def test_browser_audit_does_not_claim_functional_correctness():
     assert "Наличие элементов не доказывает работоспособность алгоритма" in source
     assert "horizontalOverflow" in source
     assert "pageerror" in source
+
+
+def test_main_browser_qa_is_get_only_and_bounded():
+    import inspect
+    from monitor.main_browser_qa import audit_main_browser, PAGES, VIEWPORTS
+    src = inspect.getsource(audit_main_browser)
+    assert PAGES == ["/", "/blank/", "/ognezaschita/", "/veksa/"]
+    assert set(VIEWPORTS) == {"desktop", "mobile"}
+    assert 'route.request.method in ("GET", "HEAD", "OPTIONS")' in src
+    for forbidden in (".click(", ".fill(", ".submit(", ".press("):
+        assert forbidden not in src
+    assert "horizontalOverflow" in src
+    assert "imagesMissingAlt" in src
+    assert "pageerror" in src
