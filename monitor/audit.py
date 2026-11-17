@@ -184,7 +184,7 @@ def inspect_page(page, url: str, *, detail: bool) -> dict:
             # Keep only a short, restricted title; never save arbitrary page text.
             result["product_title"] = clean_product_title(headings[0]) if headings else None
             result["breadcrumbs"] = page.locator("[aria-label*=breadcrumb i], .breadcrumb, .breadcrumbs").count() > 0
-            result["images"] = page.locator("img").evaluate_all("es => es.slice(0,30).map(e => ({url:e.getAttribute('src')||'', alt_present:!!(e.getAttribute('alt')||'').trim(), complete:e.complete, loaded:e.naturalWidth>0, lazy:e.loading==='lazy'}))")
+            result["images"] = page.locator("img").evaluate_all("es => es.slice(0,30).map(e => ({url:e.getAttribute('src')||'', alt_present:e.hasAttribute('alt'), alt_nonempty:!!(e.getAttribute('alt')||'').trim(), complete:e.complete, loaded:e.naturalWidth>0, lazy:e.loading==='lazy'}))")
             result["description_present"] = page.locator("meta[name=description]").count() > 0
             result["specification_present"] = page.locator("table, dl, [class*=characteristic], [class*=specification]").count() > 0
             result["price_signal_present"] = page.locator("body").evaluate(r"e => /(?:₽|\bруб\.?|цена)/i.test(e.innerText)")
@@ -196,7 +196,7 @@ def inspect_page(page, url: str, *, detail: bool) -> dict:
             result["warnings"] = []
             for img in result["images"]:
                 if not img["alt_present"]:
-                    result["warnings"].append("Изображение без содержательного alt")
+                    result["warnings"].append("Изображение без атрибута alt")
                 if img["complete"] and not img["loaded"]:
                     result["warnings"].append("Изображение не загрузилось")
         return result
