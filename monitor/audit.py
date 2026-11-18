@@ -17,6 +17,8 @@ import requests
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright, TimeoutError as BrowserTimeout
 from pypdf import PdfReader
+from monitor.browser_qa import audit_browser
+from monitor.main_browser_qa import audit_main_browser
 
 BASE = "https://spk-effa.ru"
 CATALOGS = ["/blank/", "/ognezaschita/", "/veksa/"]
@@ -182,7 +184,7 @@ def inspect_page(page, url: str, *, detail: bool) -> dict:
             # Keep only a short, restricted title; never save arbitrary page text.
             result["product_title"] = clean_product_title(headings[0]) if headings else None
             result["breadcrumbs"] = page.locator("[aria-label*=breadcrumb i], .breadcrumb, .breadcrumbs").count() > 0
-            result["images"] = page.locator("img").evaluate_all("es => es.slice(0,30).map(e => ({url:e.getAttribute('src')||'', alt_present:!!(e.getAttribute('alt')||'').trim(), complete:e.complete, loaded:e.naturalWidth>0, lazy:e.loading==='lazy'}))")
+            result["images"] = page.locator("img").evaluate_all("es => es.slice(0,30).map(e => ({url:e.getAttribute('src')||'', alt_present:e.hasAttribute('alt'), alt_nonempty:!!(e.getAttribute('alt')||'').trim(), complete:e.complete, loaded:e.naturalWidth>0, lazy:e.loading==='lazy'}))")
             result["description_present"] = page.locator("meta[name=description]").count() > 0
             result["specification_present"] = page.locator("table, dl, [class*=characteristic], [class*=specification]").count() > 0
             result["price_signal_present"] = page.locator("body").evaluate(r"e => /(?:₽|\bруб\.?|цена)/i.test(e.innerText)")
@@ -194,7 +196,7 @@ def inspect_page(page, url: str, *, detail: bool) -> dict:
             result["warnings"] = []
             for img in result["images"]:
                 if not img["alt_present"]:
-                    result["warnings"].append("Изображение без содержательного alt")
+                    result["warnings"].append("Изображение без атрибута alt")
                 if img["complete"] and not img["loaded"]:
                     result["warnings"].append("Изображение не загрузилось")
         return result
@@ -516,6 +518,8 @@ def run() -> dict:
                 report["search"].append(search_engine(session, engine, query, exact_path))
     session.close()
     report["raskroy"] = check_raskroy()
+    report["raskroy_browser"] = audit_browser()
+    report["main_browser"] = audit_main_browser()
     report["comparison"] = comparison(report, prev)
     return report
 
@@ -579,6 +583,24 @@ def write_report(report: dict):
         check = sub.get(key, {})
         rows.append(f"- {key}: {check.get('status', 'unverified')} HTTP {check.get('http_status', '—')}")
     rows += ["- Ограничение: " + x for x in sub.get("limitations", [])]
+    bqa = report.get("raskroy_browser") or {}
+    rows += ["", "## Раскрой PRO — браузерный QA (без действий)",
+             "- Браузер: " + str(bqa.get("status", "unverified")) + "; HTTP: " + str(bqa.get("http_status", "—")),
+             "- Desktop/mobile: " + json.dumps(bqa.get("viewport", {}), ensure_ascii=False),
+             "- Элементы: " + json.dumps(bqa.get("elements", {}), ensure_ascii=False),
+             "- JS ошибки: " + json.dumps(bqa.get("javascript_errors", []), ensure_ascii=False),
+             "- Ошибки ресурсов: " + json.dumps(bqa.get("failed_resources", []), ensure_ascii=False)]
+    rows += ["- Ограничение: " + x for x in bqa.get("limitations", [])]
+    main_qa = report.get("main_browser") or {}
+    rows += ["", "## Основной сайт — расширенный бесплатный браузерный QA",
+             "- Статус: " + str(main_qa.get("status", "unverified"))]
+    for item in main_qa.get("pages", []):
+        rows.append("- " + item.get("url", "—") + " [" + item.get("viewport", "—") + "]: HTTP " +
+                    str(item.get("http_status", "—")) + "; SEO/адаптивность/доступность: " +
+                    json.dumps(item.get("signals", {}), ensure_ascii=False) +
+                    "; JS ошибки: " + json.dumps(item.get("js_errors", []), ensure_ascii=False) +
+                    "; ошибки ресурсов: " + json.dumps(item.get("failed_assets", []), ensure_ascii=False))
+    rows += ["- Ограничение: " + x for x in main_qa.get("limitations", [])]
     rows += ["", "## Подтверждённые ошибки HTTP/PDF"]
     for item in errors[:80]:
         rows.append(f"- {item['url']} — HTTP {item.get('http_status', '—')}; {item.get('reason', '')}")
