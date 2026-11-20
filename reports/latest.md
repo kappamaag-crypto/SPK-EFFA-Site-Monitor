@@ -1,6 +1,6 @@
-# QA-аудит spk-effa.ru — 2026-11-20
+# QA-аудит spk-effa.ru — 2026-11-21
 
-Время Уфа: 2026-11-20T02:30:20.149024+05:00 (UTC+5)
+Время Уфа: 2026-11-21T02:04:05.818332+05:00 (UTC+5)
 Страницы: успешно 6/6; подтверждённые HTTP/PDF-ошибки: 0; непроверено: 8.
 
 ## Проверенные страницы
@@ -9,18 +9,18 @@
 - https://spk-effa.ru/ognezaschita/ — ok (HTTP 200)
 - https://spk-effa.ru/veksa/ — ok (HTTP 200)
 - https://spk-effa.ru/ognezaschita/effa-ep-150k.html — ok (HTTP 200)
-- https://spk-effa.ru/veksa/ep-21.html — ok (HTTP 200)
+- https://spk-effa.ru/blank/hp.html — ok (HTTP 200)
 
 ## Выбранные товары (ротация)
 - ЭФФА ЭП-150К — https://spk-effa.ru/ognezaschita/effa-ep-150k.html; H1: True; совпадение H1: None; описание: True; характеристики: True; ценовой признак: False; CTA: КП/расчёт
-- VEKSA EP 21 — https://spk-effa.ru/veksa/ep-21.html; H1: True; совпадение H1: None; описание: True; характеристики: True; ценовой признак: False; CTA: КП/расчёт
+- Blank HP — https://spk-effa.ru/blank/hp.html; H1: True; совпадение H1: None; описание: True; характеристики: True; ценовой признак: False; CTA: КП/расчёт
 
 ## PDF
+- https://spk-effa.ru/docs/blank/Blank_HP.pdf — ok; HTTP 200; страницы: 5; тип: application/pdf
 - https://spk-effa.ru/docs/effa/EFFA_EP150_and_EP150K.pdf — ok; HTTP 200; страницы: 3; тип: application/pdf
-- https://spk-effa.ru/docs/veksa/VEKSA_EP_21.pdf — ok; HTTP 200; страницы: 4; тип: application/pdf
 
 ## Поисковая видимость: Bing, Google, Яндекс
-Случайный контрольный товар: **ЭФФА ЭП-150К** — https://spk-effa.ru/ognezaschita/effa-ep-150k.html (проверка 1/2); кандидатов каталога: 28.
+Случайный контрольный товар: **ЭФФА ЭП-150К** — https://spk-effa.ru/ognezaschita/effa-ep-150k.html (проверка 2/2); кандидатов каталога: 28.
 - **Bing** `"ЭФФА ЭП-150К"` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: Недостаточно распознанных органических результатов (другая разметка или блокировка)
 - **Bing** `"ЭФФА ЭП-150К" spk-effa.ru` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: Недостаточно распознанных органических результатов (другая разметка или блокировка)
 - **Google** `"ЭФФА ЭП-150К"` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: Недостаточно распознанных органических результатов (другая разметка или блокировка)
@@ -59,7 +59,7 @@
 
 ## Предупреждения
 - https://spk-effa.ru/ognezaschita/effa-ep-150k.html: Изображение без содержательного alt
-- https://spk-effa.ru/veksa/ep-21.html: Изображение без содержательного alt
+- https://spk-effa.ru/blank/hp.html: Изображение без содержательного alt
 
 ## Ограничения и непроверенные элементы
 - Достоверность позиций ограничена публичной выдачей: регион и разметка могут меняться.
