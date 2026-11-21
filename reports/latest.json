@@ -1,8 +1,8 @@
 {
-  "timestamp_utc": "2026-11-20T21:04:05.818332+00:00",
-  "date_ufa": "2026-11-21",
+  "timestamp_utc": "2026-11-21T20:06:20.105940+00:00",
+  "date_ufa": "2026-11-22",
   "base": "https://spk-effa.ru",
-  "time_ufa": "2026-11-21T02:04:05.818332+05:00",
+  "time_ufa": "2026-11-22T01:06:20.105940+05:00",
   "checks": {
     "dns": "ok",
     "https_certificate": "ok",
@@ -46,14 +46,14 @@
       "redirected_to": null
     },
     {
-      "url": "https://spk-effa.ru/ognezaschita/effa-ep-150k.html",
+      "url": "https://spk-effa.ru/veksa/primenenie.html",
       "status": "ok",
       "http_status": 200,
       "title_present": true,
       "h1_present": true,
       "h1_matches_known_product": null,
       "redirected_to": null,
-      "product_title": "ЭФФА ЭП-150К",
+      "product_title": "Области применения",
       "breadcrumbs": true,
       "images": [
         {
@@ -62,13 +62,6 @@
           "complete": true,
           "loaded": true,
           "lazy": false
-        },
-        {
-          "url": "https://spk-effa.ru/img/products/%D0%AD%D0%A4%D0%A4%D0%90_%D0%AD%D0%9F-150%D0%9A.jpg",
-          "alt_present": true,
-          "complete": true,
-          "loaded": true,
-          "lazy": true
         },
         {
           "url": "https://spk-effa.ru/img/logo-spk-effa-mark.svg",
@@ -79,25 +72,23 @@
         }
       ],
       "description_present": true,
-      "specification_present": true,
+      "specification_present": false,
       "price_signal_present": false,
-      "cta_types": [
-        "КП/расчёт"
-      ],
+      "cta_types": [],
       "warnings": [
         "Изображение без содержательного alt",
         "Изображение без содержательного alt"
       ]
     },
     {
-      "url": "https://spk-effa.ru/blank/hp.html",
+      "url": "https://spk-effa.ru/ognezaschita/effa-01-rastvoritel.html",
       "status": "ok",
       "http_status": 200,
       "title_present": true,
       "h1_present": true,
       "h1_matches_known_product": null,
       "redirected_to": null,
-      "product_title": "Blank HP",
+      "product_title": "ЭФФА-01 (на органических растворителях)",
       "breadcrumbs": true,
       "images": [
         {
@@ -108,7 +99,7 @@
           "lazy": false
         },
         {
-          "url": "https://spk-effa.ru/img/products/Blank%20HP.jpg",
+          "url": "https://spk-effa.ru/img/products/%D0%AD%D0%A4%D0%A4%D0%90_01_%D0%BD%D0%B0_%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B5_%D1%80%D0%B0%D1%81%D1%82%D0%B2%D0%BE%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9.jpg",
           "alt_present": true,
           "complete": true,
           "loaded": true,
@@ -152,10 +143,10 @@
       "truncated": true
     },
     {
-      "url": "https://spk-effa.ru/blank/index.html",
+      "url": "https://spk-effa.ru/blank/hp.html",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://spk-effa.ru/blank/index.html",
+      "final_url": "https://spk-effa.ru/blank/hp.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -224,18 +215,18 @@
       "truncated": true
     },
     {
-      "url": "https://spk-effa.ru/kalkulyatory.html",
+      "url": "https://spk-effa.ru/index.html",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://spk-effa.ru/kalkulyatory.html",
+      "final_url": "https://spk-effa.ru/index.html",
       "content_type": "text/html",
       "truncated": true
     },
     {
-      "url": "https://spk-effa.ru/ognezaschita/effa-01-rastvoritel.html",
+      "url": "https://spk-effa.ru/kalkulyatory.html",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://spk-effa.ru/ognezaschita/effa-01-rastvoritel.html",
+      "final_url": "https://spk-effa.ru/kalkulyatory.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -276,6 +267,14 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/ognezaschita/effa-ep-150.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/effa-ep-150k.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/effa-ep-150k.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -352,6 +351,14 @@
       "truncated": true
     },
     {
+      "url": "https://spk-effa.ru/veksa/index.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/veksa/index.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
       "url": "https://spk-effa.ru/veksa/ispytaniya.html",
       "status": "ok",
       "http_status": 200,
@@ -372,14 +379,6 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/veksa/pr-10.html",
-      "content_type": "text/html",
-      "truncated": true
-    },
-    {
-      "url": "https://spk-effa.ru/veksa/primenenie.html",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://spk-effa.ru/veksa/primenenie.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -422,97 +421,88 @@
   ],
   "pdfs": [
     {
-      "url": "https://spk-effa.ru/docs/blank/Blank_HP.pdf",
+      "url": "https://spk-effa.ru/docs/effa/EFFA_01_organic_and_EFFA_KT01_organic.pdf",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://spk-effa.ru/docs/blank/Blank_HP.pdf",
+      "final_url": "https://spk-effa.ru/docs/effa/EFFA_01_organic_and_EFFA_KT01_organic.pdf",
       "content_type": "application/pdf",
-      "bytes": 310625,
-      "pages": 5
-    },
-    {
-      "url": "https://spk-effa.ru/docs/effa/EFFA_EP150_and_EP150K.pdf",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://spk-effa.ru/docs/effa/EFFA_EP150_and_EP150K.pdf",
-      "content_type": "application/pdf",
-      "bytes": 1991209,
+      "bytes": 5000576,
       "pages": 3
     }
   ],
   "search": [
     {
       "engine": "Bing",
-      "query": "\"ЭФФА ЭП-150К\"",
+      "query": "\"Области применения\"",
       "settings": {
         "setlang": "ru-RU"
       },
       "status": "unverified",
-      "target_path": "/ognezaschita/effa-ep-150k.html",
+      "target_path": "/veksa/primenenie.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
     },
     {
       "engine": "Bing",
-      "query": "\"ЭФФА ЭП-150К\" spk-effa.ru",
+      "query": "\"Области применения\" spk-effa.ru",
       "settings": {
         "setlang": "ru-RU"
       },
       "status": "unverified",
-      "target_path": "/ognezaschita/effa-ep-150k.html",
+      "target_path": "/veksa/primenenie.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
     },
     {
       "engine": "Google",
-      "query": "\"ЭФФА ЭП-150К\"",
+      "query": "\"Области применения\"",
       "settings": {
         "hl": "ru",
         "gl": "ru",
         "num": "10"
       },
       "status": "unverified",
-      "target_path": "/ognezaschita/effa-ep-150k.html",
+      "target_path": "/veksa/primenenie.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
     },
     {
       "engine": "Google",
-      "query": "\"ЭФФА ЭП-150К\" spk-effa.ru",
+      "query": "\"Области применения\" spk-effa.ru",
       "settings": {
         "hl": "ru",
         "gl": "ru",
         "num": "10"
       },
       "status": "unverified",
-      "target_path": "/ognezaschita/effa-ep-150k.html",
+      "target_path": "/veksa/primenenie.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
     },
     {
       "engine": "Яндекс",
-      "query": "\"ЭФФА ЭП-150К\"",
+      "query": "\"Области применения\"",
       "settings": {
         "lr": "172"
       },
       "status": "unverified",
-      "target_path": "/ognezaschita/effa-ep-150k.html",
+      "target_path": "/veksa/primenenie.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "HTTP 302"
     },
     {
       "engine": "Яндекс",
-      "query": "\"ЭФФА ЭП-150К\" spk-effa.ru",
+      "query": "\"Области применения\" spk-effa.ru",
       "settings": {
         "lr": "172"
       },
       "status": "unverified",
-      "target_path": "/ognezaschita/effa-ep-150k.html",
+      "target_path": "/veksa/primenenie.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "HTTP 302"
@@ -520,18 +510,18 @@
   ],
   "selected_products": [
     {
-      "name": "ЭФФА ЭП-150К",
-      "url": "https://spk-effa.ru/ognezaschita/effa-ep-150k.html"
+      "name": "Области применения",
+      "url": "https://spk-effa.ru/veksa/primenenie.html"
     },
     {
-      "name": "Blank HP",
-      "url": "https://spk-effa.ru/blank/hp.html"
+      "name": "ЭФФА-01 (на органических растворителях)",
+      "url": "https://spk-effa.ru/ognezaschita/effa-01-rastvoritel.html"
     }
   ],
   "control_product": {
-    "name": "ЭФФА ЭП-150К",
-    "url": "https://spk-effa.ru/ognezaschita/effa-ep-150k.html",
-    "consecutive_runs": 2,
+    "name": "Области применения",
+    "url": "https://spk-effa.ru/veksa/primenenie.html",
+    "consecutive_runs": 1,
     "source": "live_catalog"
   },
   "catalog_candidates_found": 28,
@@ -652,42 +642,42 @@
     "serp": [
       {
         "engine": "Bing",
-        "query": "\"ЭФФА ЭП-150К\"",
+        "query": "\"Области применения\"",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Bing",
-        "query": "\"ЭФФА ЭП-150К\" spk-effa.ru",
+        "query": "\"Области применения\" spk-effa.ru",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Google",
-        "query": "\"ЭФФА ЭП-150К\"",
+        "query": "\"Области применения\"",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Google",
-        "query": "\"ЭФФА ЭП-150К\" spk-effa.ru",
+        "query": "\"Области применения\" spk-effa.ru",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Яндекс",
-        "query": "\"ЭФФА ЭП-150К\"",
+        "query": "\"Области применения\"",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Яндекс",
-        "query": "\"ЭФФА ЭП-150К\" spk-effa.ru",
+        "query": "\"Области применения\" spk-effa.ru",
         "old_position": null,
         "new_position": null,
         "change": null
