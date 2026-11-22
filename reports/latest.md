@@ -1,6 +1,6 @@
-# QA-аудит spk-effa.ru — 2026-11-22
+# QA-аудит spk-effa.ru — 2026-11-23
 
-Время Уфа: 2026-11-22T01:06:20.105940+05:00 (UTC+5)
+Время Уфа: 2026-11-23T01:20:41.018281+05:00 (UTC+5)
 Страницы: успешно 6/6; подтверждённые HTTP/PDF-ошибки: 0; непроверено: 8.
 
 ## Проверенные страницы
@@ -9,17 +9,17 @@
 - https://spk-effa.ru/ognezaschita/ — ok (HTTP 200)
 - https://spk-effa.ru/veksa/ — ok (HTTP 200)
 - https://spk-effa.ru/veksa/primenenie.html — ok (HTTP 200)
-- https://spk-effa.ru/ognezaschita/effa-01-rastvoritel.html — ok (HTTP 200)
+- https://spk-effa.ru/blank/hp.html — ok (HTTP 200)
 
 ## Выбранные товары (ротация)
 - Области применения — https://spk-effa.ru/veksa/primenenie.html; H1: True; совпадение H1: None; описание: True; характеристики: False; ценовой признак: False; CTA: не обнаружены
-- ЭФФА-01 (на органических растворителях) — https://spk-effa.ru/ognezaschita/effa-01-rastvoritel.html; H1: True; совпадение H1: None; описание: True; характеристики: True; ценовой признак: False; CTA: КП/расчёт
+- Blank HP — https://spk-effa.ru/blank/hp.html; H1: True; совпадение H1: None; описание: True; характеристики: True; ценовой признак: False; CTA: КП/расчёт
 
 ## PDF
-- https://spk-effa.ru/docs/effa/EFFA_01_organic_and_EFFA_KT01_organic.pdf — ok; HTTP 200; страницы: 3; тип: application/pdf
+- https://spk-effa.ru/docs/blank/Blank_HP.pdf — ok; HTTP 200; страницы: 5; тип: application/pdf
 
 ## Поисковая видимость: Bing, Google, Яндекс
-Случайный контрольный товар: **Области применения** — https://spk-effa.ru/veksa/primenenie.html (проверка 1/2); кандидатов каталога: 28.
+Случайный контрольный товар: **Области применения** — https://spk-effa.ru/veksa/primenenie.html (проверка 2/2); кандидатов каталога: 28.
 - **Bing** `"Области применения"` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: Недостаточно распознанных органических результатов (другая разметка или блокировка)
 - **Bing** `"Области применения" spk-effa.ru` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: Недостаточно распознанных органических результатов (другая разметка или блокировка)
 - **Google** `"Области применения"` — unverified; позиция карточки: не установлена; другие страницы домена: []; ограничение: Недостаточно распознанных органических результатов (другая разметка или блокировка)
@@ -58,7 +58,7 @@
 
 ## Предупреждения
 - https://spk-effa.ru/veksa/primenenie.html: Изображение без содержательного alt
-- https://spk-effa.ru/ognezaschita/effa-01-rastvoritel.html: Изображение без содержательного alt
+- https://spk-effa.ru/blank/hp.html: Изображение без содержательного alt
 
 ## Ограничения и непроверенные элементы
 - Достоверность позиций ограничена публичной выдачей: регион и разметка могут меняться.
