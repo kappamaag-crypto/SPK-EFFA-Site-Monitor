@@ -1,8 +1,8 @@
 {
-  "timestamp_utc": "2026-11-24T00:56:00.676468+00:00",
-  "date_ufa": "2026-11-24",
+  "timestamp_utc": "2026-11-24T23:00:54.257725+00:00",
+  "date_ufa": "2026-11-25",
   "base": "https://spk-effa.ru",
-  "time_ufa": "2026-11-24T05:56:00.676468+05:00",
+  "time_ufa": "2026-11-25T04:00:54.257725+05:00",
   "checks": {
     "dns": "ok",
     "https_certificate": "ok",
@@ -90,14 +90,14 @@
       ]
     },
     {
-      "url": "https://spk-effa.ru/blank/universal.html",
+      "url": "https://spk-effa.ru/blank/hp.html",
       "status": "ok",
       "http_status": 200,
       "title_present": true,
       "h1_present": true,
-      "h1_matches_known_product": true,
+      "h1_matches_known_product": null,
       "redirected_to": null,
-      "product_title": "Blank Universal",
+      "product_title": "Blank HP",
       "breadcrumbs": true,
       "images": [
         {
@@ -108,7 +108,7 @@
           "lazy": false
         },
         {
-          "url": "https://spk-effa.ru/img/products/Blank%20Universal.jpg",
+          "url": "https://spk-effa.ru/img/products/Blank%20HP.jpg",
           "alt_present": true,
           "complete": true,
           "loaded": true,
@@ -148,14 +148,6 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/blank/finish.html",
-      "content_type": "text/html",
-      "truncated": true
-    },
-    {
-      "url": "https://spk-effa.ru/blank/hp.html",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://spk-effa.ru/blank/hp.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -212,6 +204,14 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/blank/tank.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/universal.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/universal.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -414,12 +414,12 @@
   ],
   "pdfs": [
     {
-      "url": "https://spk-effa.ru/docs/blank/Blank_Universal.pdf",
+      "url": "https://spk-effa.ru/docs/blank/Blank_HP.pdf",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://spk-effa.ru/docs/blank/Blank_Universal.pdf",
+      "final_url": "https://spk-effa.ru/docs/blank/Blank_HP.pdf",
       "content_type": "application/pdf",
-      "bytes": 660596,
+      "bytes": 310625,
       "pages": 5
     },
     {
@@ -516,14 +516,14 @@
       "url": "https://spk-effa.ru/veksa/pr-10.html"
     },
     {
-      "name": "Blank Universal",
-      "url": "https://spk-effa.ru/blank/universal.html"
+      "name": "Blank HP",
+      "url": "https://spk-effa.ru/blank/hp.html"
     }
   ],
   "control_product": {
     "name": "VEKSA PR 10",
     "url": "https://spk-effa.ru/veksa/pr-10.html",
-    "consecutive_runs": 1,
+    "consecutive_runs": 2,
     "source": "live_catalog"
   },
   "catalog_candidates_found": 28,
