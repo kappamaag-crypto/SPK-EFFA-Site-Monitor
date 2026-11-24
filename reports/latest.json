@@ -1,8 +1,8 @@
 {
-  "timestamp_utc": "2026-11-22T20:20:41.018281+00:00",
-  "date_ufa": "2026-11-23",
+  "timestamp_utc": "2026-11-24T00:56:00.676468+00:00",
+  "date_ufa": "2026-11-24",
   "base": "https://spk-effa.ru",
-  "time_ufa": "2026-11-23T01:20:41.018281+05:00",
+  "time_ufa": "2026-11-24T05:56:00.676468+05:00",
   "checks": {
     "dns": "ok",
     "https_certificate": "ok",
@@ -46,14 +46,14 @@
       "redirected_to": null
     },
     {
-      "url": "https://spk-effa.ru/veksa/primenenie.html",
+      "url": "https://spk-effa.ru/veksa/pr-10.html",
       "status": "ok",
       "http_status": 200,
       "title_present": true,
       "h1_present": true,
-      "h1_matches_known_product": null,
+      "h1_matches_known_product": true,
       "redirected_to": null,
-      "product_title": "Области применения",
+      "product_title": "VEKSA PR 10",
       "breadcrumbs": true,
       "images": [
         {
@@ -62,6 +62,13 @@
           "complete": true,
           "loaded": true,
           "lazy": false
+        },
+        {
+          "url": "https://spk-effa.ru/img/products/Veksa-floor.jpg",
+          "alt_present": true,
+          "complete": true,
+          "loaded": true,
+          "lazy": true
         },
         {
           "url": "https://spk-effa.ru/img/logo-spk-effa-mark.svg",
@@ -72,23 +79,25 @@
         }
       ],
       "description_present": true,
-      "specification_present": false,
+      "specification_present": true,
       "price_signal_present": false,
-      "cta_types": [],
+      "cta_types": [
+        "КП/расчёт"
+      ],
       "warnings": [
         "Изображение без содержательного alt",
         "Изображение без содержательного alt"
       ]
     },
     {
-      "url": "https://spk-effa.ru/blank/hp.html",
+      "url": "https://spk-effa.ru/blank/universal.html",
       "status": "ok",
       "http_status": 200,
       "title_present": true,
       "h1_present": true,
-      "h1_matches_known_product": null,
+      "h1_matches_known_product": true,
       "redirected_to": null,
-      "product_title": "Blank HP",
+      "product_title": "Blank Universal",
       "breadcrumbs": true,
       "images": [
         {
@@ -99,7 +108,7 @@
           "lazy": false
         },
         {
-          "url": "https://spk-effa.ru/img/products/Blank%20HP.jpg",
+          "url": "https://spk-effa.ru/img/products/Blank%20Universal.jpg",
           "alt_present": true,
           "complete": true,
           "loaded": true,
@@ -139,6 +148,14 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/blank/finish.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/hp.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/hp.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -199,26 +216,10 @@
       "truncated": true
     },
     {
-      "url": "https://spk-effa.ru/blank/universal.html",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://spk-effa.ru/blank/universal.html",
-      "content_type": "text/html",
-      "truncated": true
-    },
-    {
       "url": "https://spk-effa.ru/blank/zinc.html",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/blank/zinc.html",
-      "content_type": "text/html",
-      "truncated": true
-    },
-    {
-      "url": "https://spk-effa.ru/index.html",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://spk-effa.ru/index.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -367,10 +368,10 @@
       "truncated": true
     },
     {
-      "url": "https://spk-effa.ru/veksa/pr-10.html",
+      "url": "https://spk-effa.ru/veksa/primenenie.html",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://spk-effa.ru/veksa/pr-10.html",
+      "final_url": "https://spk-effa.ru/veksa/primenenie.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -413,88 +414,97 @@
   ],
   "pdfs": [
     {
-      "url": "https://spk-effa.ru/docs/blank/Blank_HP.pdf",
+      "url": "https://spk-effa.ru/docs/blank/Blank_Universal.pdf",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://spk-effa.ru/docs/blank/Blank_HP.pdf",
+      "final_url": "https://spk-effa.ru/docs/blank/Blank_Universal.pdf",
       "content_type": "application/pdf",
-      "bytes": 310625,
+      "bytes": 660596,
       "pages": 5
+    },
+    {
+      "url": "https://spk-effa.ru/docs/veksa/VEKSA_PR_10.pdf",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/docs/veksa/VEKSA_PR_10.pdf",
+      "content_type": "application/pdf",
+      "bytes": 204099,
+      "pages": 3
     }
   ],
   "search": [
     {
       "engine": "Bing",
-      "query": "\"Области применения\"",
+      "query": "\"VEKSA PR 10\"",
       "settings": {
         "setlang": "ru-RU"
       },
       "status": "unverified",
-      "target_path": "/veksa/primenenie.html",
+      "target_path": "/veksa/pr-10.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
     },
     {
       "engine": "Bing",
-      "query": "\"Области применения\" spk-effa.ru",
+      "query": "\"VEKSA PR 10\" spk-effa.ru",
       "settings": {
         "setlang": "ru-RU"
       },
       "status": "unverified",
-      "target_path": "/veksa/primenenie.html",
+      "target_path": "/veksa/pr-10.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
     },
     {
       "engine": "Google",
-      "query": "\"Области применения\"",
+      "query": "\"VEKSA PR 10\"",
       "settings": {
         "hl": "ru",
         "gl": "ru",
         "num": "10"
       },
       "status": "unverified",
-      "target_path": "/veksa/primenenie.html",
+      "target_path": "/veksa/pr-10.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
     },
     {
       "engine": "Google",
-      "query": "\"Области применения\" spk-effa.ru",
+      "query": "\"VEKSA PR 10\" spk-effa.ru",
       "settings": {
         "hl": "ru",
         "gl": "ru",
         "num": "10"
       },
       "status": "unverified",
-      "target_path": "/veksa/primenenie.html",
+      "target_path": "/veksa/pr-10.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
     },
     {
       "engine": "Яндекс",
-      "query": "\"Области применения\"",
+      "query": "\"VEKSA PR 10\"",
       "settings": {
         "lr": "172"
       },
       "status": "unverified",
-      "target_path": "/veksa/primenenie.html",
+      "target_path": "/veksa/pr-10.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "HTTP 302"
     },
     {
       "engine": "Яндекс",
-      "query": "\"Области применения\" spk-effa.ru",
+      "query": "\"VEKSA PR 10\" spk-effa.ru",
       "settings": {
         "lr": "172"
       },
       "status": "unverified",
-      "target_path": "/veksa/primenenie.html",
+      "target_path": "/veksa/pr-10.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "HTTP 302"
@@ -502,18 +512,18 @@
   ],
   "selected_products": [
     {
-      "name": "Области применения",
-      "url": "https://spk-effa.ru/veksa/primenenie.html"
+      "name": "VEKSA PR 10",
+      "url": "https://spk-effa.ru/veksa/pr-10.html"
     },
     {
-      "name": "Blank HP",
-      "url": "https://spk-effa.ru/blank/hp.html"
+      "name": "Blank Universal",
+      "url": "https://spk-effa.ru/blank/universal.html"
     }
   ],
   "control_product": {
-    "name": "Области применения",
-    "url": "https://spk-effa.ru/veksa/primenenie.html",
-    "consecutive_runs": 2,
+    "name": "VEKSA PR 10",
+    "url": "https://spk-effa.ru/veksa/pr-10.html",
+    "consecutive_runs": 1,
     "source": "live_catalog"
   },
   "catalog_candidates_found": 28,
@@ -634,42 +644,42 @@
     "serp": [
       {
         "engine": "Bing",
-        "query": "\"Области применения\"",
+        "query": "\"VEKSA PR 10\"",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Bing",
-        "query": "\"Области применения\" spk-effa.ru",
+        "query": "\"VEKSA PR 10\" spk-effa.ru",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Google",
-        "query": "\"Области применения\"",
+        "query": "\"VEKSA PR 10\"",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Google",
-        "query": "\"Области применения\" spk-effa.ru",
+        "query": "\"VEKSA PR 10\" spk-effa.ru",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Яндекс",
-        "query": "\"Области применения\"",
+        "query": "\"VEKSA PR 10\"",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Яндекс",
-        "query": "\"Области применения\" spk-effa.ru",
+        "query": "\"VEKSA PR 10\" spk-effa.ru",
         "old_position": null,
         "new_position": null,
         "change": null
