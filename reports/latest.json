@@ -1,8 +1,8 @@
 {
-  "timestamp_utc": "2026-11-24T23:00:54.257725+00:00",
-  "date_ufa": "2026-11-25",
+  "timestamp_utc": "2026-11-25T22:30:13.522695+00:00",
+  "date_ufa": "2026-11-26",
   "base": "https://spk-effa.ru",
-  "time_ufa": "2026-11-25T04:00:54.257725+05:00",
+  "time_ufa": "2026-11-26T03:30:13.522695+05:00",
   "checks": {
     "dns": "ok",
     "https_certificate": "ok",
@@ -46,14 +46,14 @@
       "redirected_to": null
     },
     {
-      "url": "https://spk-effa.ru/veksa/pr-10.html",
+      "url": "https://spk-effa.ru/ognezaschita/effa-ep-150.html",
       "status": "ok",
       "http_status": 200,
       "title_present": true,
       "h1_present": true,
       "h1_matches_known_product": true,
       "redirected_to": null,
-      "product_title": "VEKSA PR 10",
+      "product_title": "ЭФФА ЭП-150",
       "breadcrumbs": true,
       "images": [
         {
@@ -64,7 +64,7 @@
           "lazy": false
         },
         {
-          "url": "https://spk-effa.ru/img/products/Veksa-floor.jpg",
+          "url": "https://spk-effa.ru/img/products/%D0%AD%D0%A4%D0%A4%D0%90_%D0%AD%D0%9F-150.jpg",
           "alt_present": true,
           "complete": true,
           "loaded": true,
@@ -90,14 +90,14 @@
       ]
     },
     {
-      "url": "https://spk-effa.ru/blank/hp.html",
+      "url": "https://spk-effa.ru/blank/tank.html",
       "status": "ok",
       "http_status": 200,
       "title_present": true,
       "h1_present": true,
       "h1_matches_known_product": null,
       "redirected_to": null,
-      "product_title": "Blank HP",
+      "product_title": "Blank Tank",
       "breadcrumbs": true,
       "images": [
         {
@@ -108,7 +108,7 @@
           "lazy": false
         },
         {
-          "url": "https://spk-effa.ru/img/products/Blank%20HP.jpg",
+          "url": "https://spk-effa.ru/img/products/Blank%20Tank.jpg",
           "alt_present": true,
           "complete": true,
           "loaded": true,
@@ -148,6 +148,14 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/blank/finish.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/hp.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/hp.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -196,14 +204,6 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/blank/tank-lp.html",
-      "content_type": "text/html",
-      "truncated": true
-    },
-    {
-      "url": "https://spk-effa.ru/blank/tank.html",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://spk-effa.ru/blank/tank.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -272,14 +272,6 @@
       "truncated": true
     },
     {
-      "url": "https://spk-effa.ru/ognezaschita/effa-ep-150.html",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://spk-effa.ru/ognezaschita/effa-ep-150.html",
-      "content_type": "text/html",
-      "truncated": true
-    },
-    {
       "url": "https://spk-effa.ru/ognezaschita/effa-ep-150k.html",
       "status": "ok",
       "http_status": 200,
@@ -308,6 +300,22 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/ognezaschita/effa-pu-026.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/index.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/index.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/ognezaschita/obyekty.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/ognezaschita/obyekty.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -344,14 +352,6 @@
       "truncated": true
     },
     {
-      "url": "https://spk-effa.ru/veksa/index.html",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://spk-effa.ru/veksa/index.html",
-      "content_type": "text/html",
-      "truncated": true
-    },
-    {
       "url": "https://spk-effa.ru/veksa/ispytaniya.html",
       "status": "ok",
       "http_status": 200,
@@ -364,6 +364,14 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/veksa/pp-11.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/veksa/pr-10.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/veksa/pr-10.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -414,97 +422,97 @@
   ],
   "pdfs": [
     {
-      "url": "https://spk-effa.ru/docs/blank/Blank_HP.pdf",
+      "url": "https://spk-effa.ru/docs/blank/Blank_Tank.pdf",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://spk-effa.ru/docs/blank/Blank_HP.pdf",
+      "final_url": "https://spk-effa.ru/docs/blank/Blank_Tank.pdf",
       "content_type": "application/pdf",
-      "bytes": 310625,
+      "bytes": 872203,
       "pages": 5
     },
     {
-      "url": "https://spk-effa.ru/docs/veksa/VEKSA_PR_10.pdf",
+      "url": "https://spk-effa.ru/docs/effa/EFFA_EP150_and_EP150K.pdf",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://spk-effa.ru/docs/veksa/VEKSA_PR_10.pdf",
+      "final_url": "https://spk-effa.ru/docs/effa/EFFA_EP150_and_EP150K.pdf",
       "content_type": "application/pdf",
-      "bytes": 204099,
+      "bytes": 1991209,
       "pages": 3
     }
   ],
   "search": [
     {
       "engine": "Bing",
-      "query": "\"VEKSA PR 10\"",
+      "query": "\"ЭФФА ЭП-150\"",
       "settings": {
         "setlang": "ru-RU"
       },
       "status": "unverified",
-      "target_path": "/veksa/pr-10.html",
+      "target_path": "/ognezaschita/effa-ep-150.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
     },
     {
       "engine": "Bing",
-      "query": "\"VEKSA PR 10\" spk-effa.ru",
+      "query": "\"ЭФФА ЭП-150\" spk-effa.ru",
       "settings": {
         "setlang": "ru-RU"
       },
       "status": "unverified",
-      "target_path": "/veksa/pr-10.html",
+      "target_path": "/ognezaschita/effa-ep-150.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
     },
     {
       "engine": "Google",
-      "query": "\"VEKSA PR 10\"",
+      "query": "\"ЭФФА ЭП-150\"",
       "settings": {
         "hl": "ru",
         "gl": "ru",
         "num": "10"
       },
       "status": "unverified",
-      "target_path": "/veksa/pr-10.html",
+      "target_path": "/ognezaschita/effa-ep-150.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
     },
     {
       "engine": "Google",
-      "query": "\"VEKSA PR 10\" spk-effa.ru",
+      "query": "\"ЭФФА ЭП-150\" spk-effa.ru",
       "settings": {
         "hl": "ru",
         "gl": "ru",
         "num": "10"
       },
       "status": "unverified",
-      "target_path": "/veksa/pr-10.html",
+      "target_path": "/ognezaschita/effa-ep-150.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
     },
     {
       "engine": "Яндекс",
-      "query": "\"VEKSA PR 10\"",
+      "query": "\"ЭФФА ЭП-150\"",
       "settings": {
         "lr": "172"
       },
       "status": "unverified",
-      "target_path": "/veksa/pr-10.html",
+      "target_path": "/ognezaschita/effa-ep-150.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "HTTP 302"
     },
     {
       "engine": "Яндекс",
-      "query": "\"VEKSA PR 10\" spk-effa.ru",
+      "query": "\"ЭФФА ЭП-150\" spk-effa.ru",
       "settings": {
         "lr": "172"
       },
       "status": "unverified",
-      "target_path": "/veksa/pr-10.html",
+      "target_path": "/ognezaschita/effa-ep-150.html",
       "exact_product_position": null,
       "domain_positions": [],
       "reason": "HTTP 302"
@@ -512,18 +520,18 @@
   ],
   "selected_products": [
     {
-      "name": "VEKSA PR 10",
-      "url": "https://spk-effa.ru/veksa/pr-10.html"
+      "name": "ЭФФА ЭП-150",
+      "url": "https://spk-effa.ru/ognezaschita/effa-ep-150.html"
     },
     {
-      "name": "Blank HP",
-      "url": "https://spk-effa.ru/blank/hp.html"
+      "name": "Blank Tank",
+      "url": "https://spk-effa.ru/blank/tank.html"
     }
   ],
   "control_product": {
-    "name": "VEKSA PR 10",
-    "url": "https://spk-effa.ru/veksa/pr-10.html",
-    "consecutive_runs": 2,
+    "name": "ЭФФА ЭП-150",
+    "url": "https://spk-effa.ru/ognezaschita/effa-ep-150.html",
+    "consecutive_runs": 1,
     "source": "live_catalog"
   },
   "catalog_candidates_found": 28,
@@ -644,42 +652,42 @@
     "serp": [
       {
         "engine": "Bing",
-        "query": "\"VEKSA PR 10\"",
+        "query": "\"ЭФФА ЭП-150\"",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Bing",
-        "query": "\"VEKSA PR 10\" spk-effa.ru",
+        "query": "\"ЭФФА ЭП-150\" spk-effa.ru",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Google",
-        "query": "\"VEKSA PR 10\"",
+        "query": "\"ЭФФА ЭП-150\"",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Google",
-        "query": "\"VEKSA PR 10\" spk-effa.ru",
+        "query": "\"ЭФФА ЭП-150\" spk-effa.ru",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Яндекс",
-        "query": "\"VEKSA PR 10\"",
+        "query": "\"ЭФФА ЭП-150\"",
         "old_position": null,
         "new_position": null,
         "change": null
       },
       {
         "engine": "Яндекс",
-        "query": "\"VEKSA PR 10\" spk-effa.ru",
+        "query": "\"ЭФФА ЭП-150\" spk-effa.ru",
         "old_position": null,
         "new_position": null,
         "change": null
