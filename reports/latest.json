@@ -1,8 +1,8 @@
 {
-  "timestamp_utc": "2026-11-25T22:30:13.522695+00:00",
-  "date_ufa": "2026-11-26",
+  "timestamp_utc": "2026-11-26T22:20:53.712503+00:00",
+  "date_ufa": "2026-11-27",
   "base": "https://spk-effa.ru",
-  "time_ufa": "2026-11-26T03:30:13.522695+05:00",
+  "time_ufa": "2026-11-27T03:20:53.712503+05:00",
   "checks": {
     "dns": "ok",
     "https_certificate": "ok",
@@ -90,14 +90,14 @@
       ]
     },
     {
-      "url": "https://spk-effa.ru/blank/tank.html",
+      "url": "https://spk-effa.ru/ognezaschita/effa-kt01.html",
       "status": "ok",
       "http_status": 200,
       "title_present": true,
       "h1_present": true,
       "h1_matches_known_product": null,
       "redirected_to": null,
-      "product_title": "Blank Tank",
+      "product_title": "ЭФФА КТ01",
       "breadcrumbs": true,
       "images": [
         {
@@ -108,7 +108,7 @@
           "lazy": false
         },
         {
-          "url": "https://spk-effa.ru/img/products/Blank%20Tank.jpg",
+          "url": "https://spk-effa.ru/img/products/%D0%AD%D0%A4%D0%A4%D0%90_%D0%9A%D0%A201.jpg",
           "alt_present": true,
           "complete": true,
           "loaded": true,
@@ -160,14 +160,6 @@
       "truncated": true
     },
     {
-      "url": "https://spk-effa.ru/blank/index.html",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://spk-effa.ru/blank/index.html",
-      "content_type": "text/html",
-      "truncated": true
-    },
-    {
       "url": "https://spk-effa.ru/blank/mio.html",
       "status": "ok",
       "http_status": 200,
@@ -204,6 +196,14 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/blank/tank-lp.html",
+      "content_type": "text/html",
+      "truncated": true
+    },
+    {
+      "url": "https://spk-effa.ru/blank/tank.html",
+      "status": "ok",
+      "http_status": 200,
+      "final_url": "https://spk-effa.ru/blank/tank.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -284,14 +284,6 @@
       "status": "ok",
       "http_status": 200,
       "final_url": "https://spk-effa.ru/ognezaschita/effa-kabel.html",
-      "content_type": "text/html",
-      "truncated": true
-    },
-    {
-      "url": "https://spk-effa.ru/ognezaschita/effa-kt01.html",
-      "status": "ok",
-      "http_status": 200,
-      "final_url": "https://spk-effa.ru/ognezaschita/effa-kt01.html",
       "content_type": "text/html",
       "truncated": true
     },
@@ -422,13 +414,13 @@
   ],
   "pdfs": [
     {
-      "url": "https://spk-effa.ru/docs/blank/Blank_Tank.pdf",
+      "url": "https://spk-effa.ru/docs/effa/EFFA_01_organic_and_EFFA_KT01_organic.pdf",
       "status": "ok",
       "http_status": 200,
-      "final_url": "https://spk-effa.ru/docs/blank/Blank_Tank.pdf",
+      "final_url": "https://spk-effa.ru/docs/effa/EFFA_01_organic_and_EFFA_KT01_organic.pdf",
       "content_type": "application/pdf",
-      "bytes": 872203,
-      "pages": 5
+      "bytes": 5000576,
+      "pages": 3
     },
     {
       "url": "https://spk-effa.ru/docs/effa/EFFA_EP150_and_EP150K.pdf",
@@ -459,11 +451,11 @@
       "settings": {
         "setlang": "ru-RU"
       },
-      "status": "unverified",
+      "status": "ok",
       "target_path": "/ognezaschita/effa-ep-150.html",
       "exact_product_position": null,
       "domain_positions": [],
-      "reason": "Недостаточно распознанных органических результатов (другая разметка или блокировка)"
+      "organic_results_count": 6
     },
     {
       "engine": "Google",
@@ -524,14 +516,14 @@
       "url": "https://spk-effa.ru/ognezaschita/effa-ep-150.html"
     },
     {
-      "name": "Blank Tank",
-      "url": "https://spk-effa.ru/blank/tank.html"
+      "name": "ЭФФА КТ01",
+      "url": "https://spk-effa.ru/ognezaschita/effa-kt01.html"
     }
   ],
   "control_product": {
     "name": "ЭФФА ЭП-150",
     "url": "https://spk-effa.ru/ognezaschita/effa-ep-150.html",
-    "consecutive_runs": 1,
+    "consecutive_runs": 2,
     "source": "live_catalog"
   },
   "catalog_candidates_found": 28,
